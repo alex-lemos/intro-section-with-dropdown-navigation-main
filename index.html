@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+</head>
+<body>
+
+  <!-- Features
+  Company
+  Careers
+  About
+
+  Login
+  Register
+
+  Make remote work
+
+  Get your team in sync, no matter your location. Streamline processes, 
+  create team rituals, and watch productivity soar.
+
+  Learn more -->
+
+  <nav class="container-nav">
+    <div class="nav-menu">
+      <img src="./images/logo.svg" alt="Logo" class="menu__logo">
+      <ul class="menu-list menu-list--hidden">
+        <li class="list__itens">
+          Features
+
+          <span class="list--dropdown"></span>
+
+          <ul class="dropdown__list dropdown--hidden">
+            <li><i class="list_drop1"></i>Todo List</li>
+            <li><i class="list_drop2"></i>Calendar</li>
+            <li><i class="list_drop3"></i>Reminders</li>
+            <li><i class="list_drop4"></i>Planning</li>
+          </ul>
+
+        </li>
+        <li class="list__itens">
+          Company
+
+          <span class="list--dropdown"></span>
+
+          <ul class="dropdown__list dropdown--hidden">
+            <li>History</li>
+            <li style="display: block;">Our Team</li>
+            <li>Blog</li>
+          </ul>
+        
+        </li>
+
+        <li class="list__itens">Careers</li>
+        <li class="list__itens">About</li>
+
+      </ul>
+    </div>
+    <div class="nav-btn">
+      <button class="btn__login">Login</button>
+      <button class="btn__register">Register</button>
+      <button class="btn__menu-mobile--open"></button>
+    </div>
+  </nav>
+
+</body>
+</html>

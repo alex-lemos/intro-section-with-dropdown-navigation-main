@@ -1,0 +1,319 @@
+/* Reset CSS */
+
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
+}
+html{
+    font-size: 62.5%;
+}
+
+/* End Reset CSS */
+
+// /* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+@import "./_colors.scss";
+
+// /* End Imports */
+
+// /* Mixin */
+
+@mixin responsive(){
+    @media screen and (max-width: 960px){
+        @content;
+    }
+}
+
+// /* End Mixin */
+
+body{
+    background-color: rgb(77, 77, 225);
+
+    font-family: 'Epilogue', sans-serif;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.container-nav{
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    z-index: 999;
+
+    width: 100%;
+
+    font-size: 1.4rem;
+
+    padding: 20px 40px;
+
+    background-color: $almost-white;
+
+    color: $medium-gray;
+
+    @include responsive(){
+        padding: 20px 15px;
+
+        height: 70px;
+    }
+
+    .nav-menu{
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        
+        width: 1440px;
+
+        margin: 0 auto;
+
+        .menu__logo{
+            width: 70px;
+        }
+
+        .menu-list{
+
+            @include responsive(){
+                flex-direction: column;
+                
+                padding: 100px 0px 0px 30px;
+
+                background-color: $almost-white;
+
+                height: 100vh;
+
+                box-shadow: -200px 0px 0px 9999px rgba(20,20,20,0.7);
+
+                width: 100%;
+                max-width: 200px;
+
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
+
+            display: flex;
+            gap: 40px;
+
+            list-style: none;
+
+            .list__itens{
+
+                position: relative;
+
+                cursor: pointer;
+
+                &:hover{
+                    color: $almost-black;
+
+                    transition: .5s;
+
+                    .list--dropdown{
+                        background-image: url("./images/icon-arrow-up.svg");
+
+                        transition: .5s;
+                    }
+
+                }
+
+                .list--dropdown{
+
+                    padding-left: 25px;
+    
+                    background-image: url("./images/icon-arrow-down.svg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    transition: .5s;
+                }
+
+                .dropdown__list{
+                    position: absolute;
+                    right: 0;
+
+                    list-style: none;
+                    
+                    font-size: 1.4rem;
+
+                    color: $medium-gray;
+
+                    background-color: $almost-white;
+
+                    padding: 20px;
+
+                    white-space: nowrap;
+
+                    box-shadow: 0px 20px 94px -28px rgba(105,105,105,1);
+
+                    margin-top: 12px;
+
+                    border-radius: 12px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 17px;
+
+                    @mixin listDropdown(){
+                        @content;
+
+                        background-position: center;
+                        background-repeat: no-repeat;
+
+                        margin-right: 12px;
+                        padding: 1px 10px 1px 10px;
+                    }
+                    
+
+                    .list_drop1{
+
+                        @include listDropdown(){
+                            background-image: url("./images/icon-todo.svg");
+                        }
+
+                    }
+                    .list_drop2{
+
+                        @include listDropdown(){
+                            background-image: url("./images/icon-calendar.svg");
+                        }
+
+                    }
+                    .list_drop3{
+                        
+                        @include listDropdown(){
+                            background-image: url("./images/icon-reminders.svg");
+                        }
+
+                    }
+                    .list_drop4{
+
+                        @include listDropdown(){
+                            background-image: url("./images/icon-planning.svg");
+                        }
+
+                    }
+
+                }
+
+                .dropdown--hidden{
+                    display: none;
+                }
+            }
+        }
+
+        .menu-list--hidden{
+            @include responsive(){
+                display: none;
+            }
+        }
+    }
+
+    .nav-btn{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .btn__login{
+            background-color: transparent;
+            border: none;
+
+            cursor: pointer;
+
+            font-family: 'Epilogue', sans-serif;
+            font-size: 1.6rem;
+
+            color: $medium-gray;
+
+            &:hover{
+                color: $almost-black;
+
+                transition: .5s;
+            }
+
+            @include responsive(){
+                display: none;
+            }
+        }
+
+        .btn__register{
+            background-color: transparent;
+
+            padding: 10px 17px;
+
+            cursor: pointer;
+
+            border-radius: 13px;
+            border: 2px solid $medium-gray;
+
+            font-family: 'Epilogue', sans-serif;
+            font-size: 1.6rem;
+
+            color: $medium-gray;
+
+            &:hover{
+                color: $almost-black;
+                border-color: $almost-black;
+
+                transition: .5s;
+            }
+
+            @include responsive(){
+                display: none;
+            }
+        }
+
+        .btn__menu-mobile--open{
+            display: none;
+
+            @include responsive(){
+                display: block;
+
+                background-image: url("./images/icon-menu.svg");
+                background-color: $almost-white;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                border: none;
+
+                cursor: pointer;
+
+                width: 32px;
+                height: 18px;
+            }
+        }
+
+        .btn__menu-mobile--close{
+            display: none;
+
+            @include responsive(){
+
+                display: block;
+
+                background-image: url("./images/icon-close-menu.svg");
+                background-color: $almost-white;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                border: none;
+
+                width: 26px;
+                height: 26px;
+
+                z-index: 999;
+
+            }
+        }
+    }
+}
