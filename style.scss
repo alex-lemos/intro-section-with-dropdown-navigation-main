@@ -74,6 +74,10 @@ header{
 
     padding: 5px 15px;
 
+    @include responsive(){
+        padding: 0px 5px;
+    }
+
     .nav__logo{
         grid-area: logo;
     }
@@ -85,6 +89,27 @@ header{
         gap: 40px;
         
         list-style: none;
+
+        @include responsive(){
+            flex-direction: column;
+            
+            padding: 100px 0px 0px 30px;
+
+            background-color: $almost-white;
+
+            height: 100vh;
+
+            box-shadow: -200px 0px 0px 9999px rgba(20,20,20,0.7);
+
+            width: 100%;
+            max-width: 230px;
+
+            position: fixed;
+            right: 0;
+            top: 0;
+
+            gap: 25px;
+        }
         
         .dropdown__title{
 
@@ -94,17 +119,7 @@ header{
 
             svg{
                 margin-left: 5px;
-
-                // &:hover path{
-                //     stroke: $almost-black;
-                // }
-
             }
-
-            // &:hover svg path:hover{
-            //     stroke: $almost-black;
-            // }
-
 
             &:hover{
                 color: $almost-black;
@@ -169,6 +184,21 @@ header{
                 flex-direction: column;
                 justify-content: center;
                 gap: 17px;
+
+                @include responsive(){
+                    position: static;
+
+                    background-color: $almost-white;
+
+                    box-shadow: none;
+
+                    font-size: 1.6rem;
+
+                    gap: 25px;
+
+                    padding: 20px 0px 10px 20px;
+
+                }
                 
 
                 @mixin listDropdown(){
@@ -224,6 +254,12 @@ header{
         
     }
 
+    .nav-list--hidden{
+        @include responsive(){
+            display: none;
+        }
+    }
+
     .nav-btn{
         grid-area: btn;
         justify-self: end;
@@ -247,6 +283,10 @@ header{
 
                 transition: .5s ease;
             }
+
+            @include responsive(){
+                display: none;
+            }
         }
 
         .btn__register{
@@ -269,6 +309,52 @@ header{
                 border-color: $almost-black;
 
                 transition: .5s ease;
+            }
+
+            @include responsive(){
+                display: none;
+            }
+        }
+
+        .btn__menu-mobile--open{
+            display: none;
+
+            @include responsive(){
+                display: block;
+
+                background-image: url("./images/icon-menu.svg");
+                background-color: $almost-white;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                border: none;
+
+                cursor: pointer;
+
+                width: 32px;
+                height: 18px;
+            }
+        }
+
+        .btn__menu-mobile--close{
+            display: none;
+
+            @include responsive(){
+
+                display: block;
+
+                background-image: url("./images/icon-close-menu.svg");
+                background-color: $almost-white;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                border: none;
+
+                width: 26px;
+                height: 26px;
+
+                z-index: 999;
+
             }
         }
     }
