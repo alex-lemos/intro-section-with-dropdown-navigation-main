@@ -30,47 +30,89 @@
 
   Learn more -->
 
-  <nav class="container-nav">
-    <div class="nav-menu">
-      <img src="./images/logo.svg" alt="Logo" class="menu__logo">
-      <ul class="menu-list menu-list--hidden">
-        <li class="list__itens">
-          Features
+  <header>
 
-          <span class="list--dropdown"></span>
+    <nav class="container-nav">
 
-          <ul class="dropdown__list dropdown--hidden">
-            <li><i class="list_drop1"></i>Todo List</li>
-            <li><i class="list_drop2"></i>Calendar</li>
-            <li><i class="list_drop3"></i>Reminders</li>
-            <li><i class="list_drop4"></i>Planning</li>
-          </ul>
+      <img src="./images/logo.svg" alt="Logo" class="nav__logo">
+
+      <ul class="nav-list">
+
+       <li class="list-itens">
+
+        <details class="itens-dropdown">
+
+          <summary class="dropdown__title">
+
+            Features
+            <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path class="title__path" stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg>
+
+
+          </summary>
+          
+          <div class="dropdown-list">
+
+            <a href="#"><i class="list__item--todo"></i> Todo List</a>
+            <a href="#"><i class="list__item--calendar"></i> Calendar</a>
+            <a href="#"><i class="list__item--reminder"></i>Reminders</a>
+            <a href="#"><i class="list__item--planning"></i>Planning</a>
+
+          </div>
+
+        </details>
+
+       </li>
+
+       <li class="list-itens">
+         
+        <details class="itens-dropdown">
+
+          <summary class="dropdown__title">
+
+            Company
+            <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path class="title__path" stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg>
+
+
+          </summary>
+          
+          <div class="dropdown-list">
+
+            <a href="#" class="list__item">History</a>
+            <a href="#" class="list__item">Our Team</a>
+            <a href="#" class="list__item">Blog</a>
+
+          </div>
+          
+        </details>
+
+       </li>
+
+       <li class="list-itens">
+
+         <a href="" class="itens__link">Carrers</a>
 
         </li>
-        <li class="list__itens">
-          Company
 
-          <span class="list--dropdown"></span>
+       <li class="list-itens">
 
-          <ul class="dropdown__list dropdown--hidden">
-            <li>History</li>
-            <li style="display: block;">Our Team</li>
-            <li>Blog</li>
-          </ul>
-        
+         <a href="" class="itens__link">About</a>
+
         </li>
-
-        <li class="list__itens">Careers</li>
-        <li class="list__itens">About</li>
 
       </ul>
-    </div>
-    <div class="nav-btn">
-      <button class="btn__login">Login</button>
-      <button class="btn__register">Register</button>
-      <button class="btn__menu-mobile--open"></button>
-    </div>
-  </nav>
+
+      <div class="nav-btn">
+
+        <button class="btn__login">Login</button>
+
+        <button class="btn__register">Register</button>
+
+      </div>
+
+    </nav>
+
+  </header>
+    
 
 </body>
 </html>

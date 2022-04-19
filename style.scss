@@ -37,193 +37,199 @@ html{
 // /* End Mixin */
 
 body{
-    background-color: rgb(77, 77, 225);
-
-    font-family: 'Epilogue', sans-serif;
+    font-size: 1.8rem;
 
     width: 100%;
     height: 100vh;
+
+    background-color: rgb(81, 81, 144);
+
+    font-family: 'Epilogue', sans-serif;
+    color: $medium-gray;
+}
+
+a{
+    color: $medium-gray;
+}
+
+header{
+    width: 100%;
+    
+    background-color: $almost-white;
+
+    padding: 10px 20px;
 }
 
 .container-nav{
-    display: flex;
-    justify-content: space-between;
+    max-width: 1440px;
 
-    position: fixed;
-    top: 0;
-    z-index: 999;
+    margin: 0 auto;
 
-    width: 100%;
+    font-size: 1.6rem;
 
-    font-size: 1.4rem;
+    display: grid;
+    grid-template: 1fr / 150px 1.5fr 0.5fr;
+    grid-template-areas: "logo list btn";
+    align-items: center;
 
-    padding: 20px 40px;
+    padding: 5px 15px;
 
-    background-color: $almost-white;
-
-    color: $medium-gray;
-
-    @include responsive(){
-        padding: 20px 15px;
-
-        height: 70px;
+    .nav__logo{
+        grid-area: logo;
     }
 
-    .nav-menu{
+    .nav-list{
+        grid-area: list;
+
         display: flex;
-        align-items: center;
-        gap: 70px;
+        gap: 40px;
         
-        width: 1440px;
+        list-style: none;
+        
+        .dropdown__title{
 
-        margin: 0 auto;
+            &::marker{
+                content: "";
+            }
 
-        .menu__logo{
-            width: 70px;
+            svg{
+                margin-left: 5px;
+
+                // &:hover path{
+                //     stroke: $almost-black;
+                // }
+
+            }
+
+            // &:hover svg path:hover{
+            //     stroke: $almost-black;
+            // }
+
+
+            &:hover{
+                color: $almost-black;
+
+                transition: .5s ease;
+
+            }
+
+            &:hover .title__path{
+                stroke: $almost-black;
+
+                transition: .5s ease;
+            }
+
         }
 
-        .menu-list{
 
-            @include responsive(){
-                flex-direction: column;
+        .itens-dropdown{
+            cursor: pointer;
+
+            position: relative;
+
+            &[open] summary{
+
                 
-                padding: 100px 0px 0px 30px;
+                color: $almost-black;
 
-                background-color: $almost-white;
-
-                height: 100vh;
-
-                box-shadow: -200px 0px 0px 9999px rgba(20,20,20,0.7);
-
-                width: 100%;
-                max-width: 200px;
-
-                position: fixed;
-                right: 0;
-                top: 0;
-            }
-
-            display: flex;
-            gap: 40px;
-
-            list-style: none;
-
-            .list__itens{
-
-                position: relative;
-
-                cursor: pointer;
-
-                &:hover{
-                    color: $almost-black;
-
-                    transition: .5s;
-
-                    .list--dropdown{
-                        background-image: url("./images/icon-arrow-up.svg");
-
-                        transition: .5s;
-                    }
-
-                }
-
-                .list--dropdown{
-
-                    padding-left: 25px;
-    
-                    background-image: url("./images/icon-arrow-down.svg");
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                    transition: .5s;
-                }
-
-                .dropdown__list{
-                    position: absolute;
-                    right: 0;
-
-                    list-style: none;
-                    
-                    font-size: 1.4rem;
-
-                    color: $medium-gray;
-
-                    background-color: $almost-white;
-
-                    padding: 20px;
-
-                    white-space: nowrap;
-
-                    box-shadow: 0px 20px 94px -28px rgba(105,105,105,1);
-
-                    margin-top: 12px;
-
-                    border-radius: 12px;
-                    
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 17px;
-
-                    @mixin listDropdown(){
-                        @content;
-
-                        background-position: center;
-                        background-repeat: no-repeat;
-
-                        margin-right: 12px;
-                        padding: 1px 10px 1px 10px;
-                    }
-                    
-
-                    .list_drop1{
-
-                        @include listDropdown(){
-                            background-image: url("./images/icon-todo.svg");
-                        }
-
-                    }
-                    .list_drop2{
-
-                        @include listDropdown(){
-                            background-image: url("./images/icon-calendar.svg");
-                        }
-
-                    }
-                    .list_drop3{
-                        
-                        @include listDropdown(){
-                            background-image: url("./images/icon-reminders.svg");
-                        }
-
-                    }
-                    .list_drop4{
-
-                        @include listDropdown(){
-                            background-image: url("./images/icon-planning.svg");
-                        }
-
-                    }
-
-                }
-
-                .dropdown--hidden{
-                    display: none;
+                &::after{
+                    content: url("./images/icon-arrow-up.svg");
+                
+                    padding-left: 5px;
                 }
             }
-        }
 
-        .menu-list--hidden{
-            @include responsive(){
+            &[open] svg{
                 display: none;
             }
+
+            .dropdown-list{
+                position: absolute;
+                right: 0;
+
+                list-style: none;
+                
+                font-size: 1.4rem;
+
+                color: $medium-gray;
+
+                background-color: white;
+
+                padding: 20px;
+
+                white-space: nowrap;
+
+                box-shadow: 0px 20px 94px -28px rgba(105,105,105,1);
+
+                margin-top: 12px;
+
+                border-radius: 12px;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 17px;
+                
+
+                @mixin listDropdown(){
+                    @content;
+
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                    margin-right: 12px;
+                    padding: 1px 10px 1px 10px;
+                }
+                
+
+                .list__item--todo{
+
+                    @include listDropdown(){
+                        background-image: url("./images/icon-todo.svg");
+                    }
+
+                }
+                .list__item--calendar{
+
+                    @include listDropdown(){
+                        background-image: url("./images/icon-calendar.svg");
+                    }
+
+                }
+                .list__item--reminder{
+                    
+                    @include listDropdown(){
+                        background-image: url("./images/icon-reminders.svg");
+                    }
+
+                }
+                .list__item--planning{
+
+                    @include listDropdown(){
+                        background-image: url("./images/icon-planning.svg");
+                    }
+
+                }
+            }
         }
+
+        .itens__link{
+            &:hover{
+                color: $almost-black;
+
+                transition: .5s ease;
+
+            }
+        }
+        
     }
 
     .nav-btn{
+        grid-area: btn;
+        justify-self: end;
+
         display: flex;
-        align-items: center;
-        gap: 30px;
+        gap: 35px;
 
         .btn__login{
             background-color: transparent;
@@ -239,11 +245,7 @@ body{
             &:hover{
                 color: $almost-black;
 
-                transition: .5s;
-            }
-
-            @include responsive(){
-                display: none;
+                transition: .5s ease;
             }
         }
 
@@ -266,53 +268,7 @@ body{
                 color: $almost-black;
                 border-color: $almost-black;
 
-                transition: .5s;
-            }
-
-            @include responsive(){
-                display: none;
-            }
-        }
-
-        .btn__menu-mobile--open{
-            display: none;
-
-            @include responsive(){
-                display: block;
-
-                background-image: url("./images/icon-menu.svg");
-                background-color: $almost-white;
-                background-repeat: no-repeat;
-                background-position: center;
-
-                border: none;
-
-                cursor: pointer;
-
-                width: 32px;
-                height: 18px;
-            }
-        }
-
-        .btn__menu-mobile--close{
-            display: none;
-
-            @include responsive(){
-
-                display: block;
-
-                background-image: url("./images/icon-close-menu.svg");
-                background-color: $almost-white;
-                background-repeat: no-repeat;
-                background-position: center;
-
-                border: none;
-
-                width: 26px;
-                height: 26px;
-
-                z-index: 999;
-
+                transition: .5s ease;
             }
         }
     }
