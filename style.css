@@ -354,8 +354,6 @@ main {
           flex-direction: column;
   gap: 150px;
   margin-left: 110px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
 }
 
 @media screen and (max-width: 960px) {
@@ -363,6 +361,8 @@ main {
     grid-area: call;
     margin-left: 0px;
     gap: 40px;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
 }
 

@@ -395,14 +395,14 @@ main{
 
         margin-left: 110px;
 
-        align-self: flex-start;
-
         @include responsive(){
             grid-area: call;
 
             margin-left: 0px;
 
             gap: 40px;
+
+            align-self: flex-start;
 
         }
 
