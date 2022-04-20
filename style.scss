@@ -42,7 +42,7 @@ body{
     width: 100%;
     height: 100vh;
 
-    background-color: rgb(81, 81, 144);
+    background-color: $almost-white;
 
     font-family: 'Epilogue', sans-serif;
     color: $medium-gray;
@@ -58,6 +58,10 @@ header{
     background-color: $almost-white;
 
     padding: 10px 20px;
+
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
 
 .container-nav{
@@ -75,7 +79,7 @@ header{
     padding: 5px 15px;
 
     @include responsive(){
-        padding: 0px 5px;
+        padding: 10px 5px;
     }
 
     .nav__logo{
@@ -358,4 +362,182 @@ header{
             }
         }
     }
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+}
+
+.container-section{
+    max-width: 1440px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template: 1fr / 1fr 1fr;
+
+    @include responsive(){
+        grid-template: 420px 1fr / 1fr;
+        grid-template-areas:"banner"
+                            "call";
+        
+    }
+    
+
+    .section-call{
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        margin-left: 110px;
+
+        align-self: flex-start;
+
+        @include responsive(){
+            grid-area: call;
+
+            margin-left: 0px;
+
+            gap: 40px;
+
+        }
+
+        .call-text{
+
+            margin-top: 55px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            @include responsive(){
+                margin-top: 0px;
+
+                margin: 30px 10px;
+
+                text-align: center;
+                
+                gap: 20px;
+            }
+
+            .text__title{
+                font-size: 7.8rem;
+
+                max-width: 85%;
+    
+                color: $almost-black;
+
+                @include responsive(){
+                    font-size: 4.2rem;
+
+                    max-width: 100%;
+
+                }
+            }
+    
+            .text__subtitle{
+                max-width: 80%;
+    
+                line-height: 27px;
+
+                @include responsive(){
+
+                    font-size: 1.6rem;
+
+                    max-width: 100%;
+
+                    margin: 0px 45px;
+
+                }
+            }
+    
+            .text__btn{
+    
+                align-self: flex-start;
+    
+                padding: 20px 32px;
+    
+                border-radius: 15px;
+    
+                font-family: 'Epilogue', sans-serif;
+                font-size: 1.8rem;
+                font-weight: 700;
+                white-space: nowrap;
+    
+                background-color: $almost-black;
+                border: none;
+                color: $almost-white;
+    
+                cursor: pointer;
+
+                @include responsive(){
+                    align-self: center;
+
+                    font-size: 1.6rem;
+
+                    padding: 15px 32px;
+
+                    margin-top: 15px;
+                
+                }
+            }
+
+        }
+
+        .call_logos{
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include responsive(){
+
+                margin: 0px 25px;
+
+                .logos__img{
+                    width: 75px;
+                }
+            }
+           
+        }
+
+        
+    }
+
+
+
+    .section-banner{
+
+        justify-self: flex-end;
+
+        margin-right: 110px;
+
+        background-image: url("./images/image-hero-desktop.png");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 500px;
+        height: 600px;
+
+        @include responsive(){
+            width: 100%;
+            height: 400px;
+            background-size: contain;
+            background-position: bottom;
+            background-image: url("./images/image-hero-mobile.png");
+
+            justify-self: center;
+
+            margin-right: 0px;
+            
+        }
+
+    }
+
+
 }
